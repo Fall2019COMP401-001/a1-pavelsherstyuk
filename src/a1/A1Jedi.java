@@ -62,12 +62,17 @@ public class A1Jedi {
 			int customersBought = 0;
 			int amount = 0;
 			for (int j = 0; j < customers.length; j++) {
+				boolean bought = false;
+				
 				for (int k = 0; k < customers[j].shoppingCart.length; k++) {
 					if (storeItems[i].getName().equals(customers[j].shoppingCart[k].getName())) {
-						customersBought++;
+						bought = true;
 						amount += customers[j].shoppingCart[k].getQuantity();
 					}
 				}
+				
+				if (bought)
+					customersBought++;
 			}
 			
 			String result = "";
